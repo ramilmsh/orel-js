@@ -1,11 +1,13 @@
 /* jshint esversion: 6 */
 "using strict";
 
-const orel = module.exports = {};
+const orel = {};
+const utils = {};
 
-const DOM = require("./utils/DOM");
-const E = require("./utils/errors");
-const Logger = require("./utils/logger");
+import Browser from "./ui/browser";
+import Logger from "./utils/logger";
 
-orel.version = "0.0.1";
-orel.ui = require("./ui/browser");
+orel.Logger = Logger;
+orel.ui = Browser;
+
+export {orel, utils};

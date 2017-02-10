@@ -1,22 +1,19 @@
 /* jshint esversion: 6 */
 
-(function (window, console) {
-    "using strict";
-    class AbstractException {
-        constructor(message) {
-            this.message = message;
-        }
-
-        print() {
-
-        }
+class AbstractException {
+    constructor(message) {
+        this.message = message;
     }
 
-    class MethodNotImpleneted extends AbstractException {
-        constructor() {
+    print() {
 
-        }
     }
+}
 
-    window.MethodNotImpleneted = MethodNotImpleneted;
-})(window, console);
+class MethodNotImpleneted extends AbstractException {
+    constructor() {
+
+    }
+}
+
+export {MethodNotImpleneted, AbstractException};

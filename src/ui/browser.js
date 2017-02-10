@@ -1,20 +1,15 @@
-/* jshint esversion:6 */
-
-(function () {
-    "using strict";
-    class Browser {
-        constructor() {
-
-        }
-
-        render() {
-
-        }
+"using strict";
+class Browser {
+    constructor() {
     }
 
-    class Scene {
-        constructor() {
-
-        }
+    render() {
     }
-})();
+}
+
+class Scene {
+    constructor() {
+    }
+}
+
+export default Browser;

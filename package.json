@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "browserify": "^14.0.0",
-    "uglify": "^0.1.5",
-    "watchify": "^3.9.0"
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2015-rollup": "^3.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^3.2.2"
+  },
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 6,
@@ -16,9 +18,9 @@
     }
   },
   "scripts": {
-    "build": "browserify ./src/Orel.js -o ./dist/orel.js",
-    "build-min": "npm run build && google-closure-compiler-js ./dist/orel.js > ./dist/orel.min.js",
-    "watch": "watchify ./src/Orel.js -o ./dist/orel.js"
+    "build": "rollup -c ./build/rollup.config.js",
+    "build-min": "npm run build && uglifyjs ./dist/orel-src.js -o ./dist/orel.js -c -m -v",
+    "watch": "rollup -c ./build/rollup.config.js --watch"
   },
   "repository": {
     "type": "git",
