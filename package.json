@@ -1,0 +1,33 @@
+{
+  "name": "orel-js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "^14.0.0",
+    "uglify": "^0.1.5",
+    "watchify": "^3.9.0"
+  },
+  "devDependencies": {},
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
+  },
+  "scripts": {
+    "build": "browserify ./src/Orel.js -o ./dist/orel.js",
+    "build-min": "npm run build && google-closure-compiler-js ./dist/orel.js > ./dist/orel.min.js",
+    "watch": "watchify ./src/Orel.js -o ./dist/orel.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramilmsh/orel-js.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramilmsh/orel-js/issues"
+  },
+  "homepage": "https://github.com/ramilmsh/orel-js#readme"
+}
