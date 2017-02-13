@@ -1,18 +1,15 @@
 "using strict";
 
 import Browser from "./ui/browser";
+
+export {Browser}
+
 import Logger from "./utils/logger";
+import Ajax from "./utils/ajax";
 
-
-let orel = {
-    ui: null,
-    utils: null
+let Utils = {
+    Logger: Logger,
+    Ajax: Ajax
 };
 
-orel.ui = Browser;
-
-orel.utils = {
-    Logger: Logger
-};
-
-export {orel};
+export {Utils}

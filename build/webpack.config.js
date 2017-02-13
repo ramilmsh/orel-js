@@ -4,7 +4,9 @@ module.exports = {
     entry: "./src/index.ts",
     output: {
         filename: "orel-src.js",
-        path: path.resolve("../dist")
+        path: path.resolve("./dist"),
+        library: "O",
+        libraryTarget: "var"
     },
 
     devtool: "source-map",
