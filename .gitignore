@@ -1,6 +1,2 @@
 # Node modules
 node_modules
-
-# Distribution
-dist/*.js
-dist/*.js.map

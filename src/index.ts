@@ -1,13 +1,18 @@
-/* jshint esversion: 6 */
 "using strict";
-
-const orel = {};
-const utils = {};
 
 import Browser from "./ui/browser";
 import Logger from "./utils/logger";
 
-orel.Logger = Logger;
+
+let orel = {
+    ui: null,
+    utils: null
+};
+
 orel.ui = Browser;
 
-export {orel, utils};
+orel.utils = {
+    Logger: Logger
+};
+
+export {orel};

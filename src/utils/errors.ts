@@ -1,18 +1,17 @@
-/* jshint esversion: 6 */
-
 class AbstractException {
-    constructor(message) {
+    message: string;
+    constructor(message: string) {
         this.message = message;
     }
 
-    print() {
-
+    print():void {
+        console.error(this.message);
     }
 }
 
 class MethodNotImpleneted extends AbstractException {
-    constructor() {
-
+    constructor(message: string) {
+        super(message);
     }
 }
 

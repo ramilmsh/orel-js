@@ -1,15 +1,13 @@
 "using strict";
 class Browser {
-    constructor() {
-    }
+    constructor(a: number) {}
 
-    render() {
-    }
+    render():void {}
 }
 
 class Scene {
-    constructor() {
-    }
+    constructor() {}
+
 }
 
 export default Browser;

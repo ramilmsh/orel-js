@@ -2,12 +2,6 @@
 
 class DOM {
     constructor() {
-        console.log(1);
-        this.bla();
-    }
-
-    bla() {
-
     }
 }
 
