@@ -1,15 +1,24 @@
 "using strict";
 
+
 import Browser from "./ui/browser";
 
-export {Browser}
+let ui = {
+    Browser: Browser
+};
+
+export { ui }
+
+import UIMap from "./map/UIMap";
+
+export {UIMap};
 
 import Logger from "./utils/logger";
 import Ajax from "./utils/ajax";
 
-let Utils = {
+let utils = {
     Logger: Logger,
     Ajax: Ajax
 };
 
-export {Utils}
+export { utils }

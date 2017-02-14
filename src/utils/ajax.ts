@@ -1,11 +1,17 @@
 interface Request {
     url: string;
-    qs?: Object;
-    at?: Array<string>;
-    q?: string;
+    qs ? : {
+        [key: string]: string
+    };
+    at ? : Array < string > ;
+    q ? : string;
 
-    success?: Function;
-    error?: Function;
+    success ? : Function;
+    error ? : Function;
+}
+
+interface Response {
+
 }
 
 class Ajax {
@@ -16,14 +22,31 @@ class Ajax {
      * @param request.qs -> object containing set of parameters
      * @param request.at -> parameters to add after "@"
      * @param request.q -> custom request after "?"
-     * 
+     *
      * @param request.success -> callback to execute upon success
      * @param request.error -> callback to execute upon error
      * @returns void
      */
-    static ajax(request: Request): void {
+    static send(request: Request): void {
         let XHR: XMLHttpRequest = new XMLHttpRequest(),
-            url: string = request.url;
+            url: string = this.parse(request);
+
+        XHR.onreadystatechange = function () {
+            if (XHR.readyState === XMLHttpRequest.DONE) {
+                if (XHR.status === 200)
+                    request.success && request.success(JSON.parse(XHR.responseText));
+                else
+                    request.error && request.error(XHR);
+            }
+        };
+
+
+        XHR.open("GET", url, true);
+        XHR.send();
+    }
+
+    static parse(request: Request): string {
+        let url: string = request.url;
 
         if (request.hasOwnProperty("at"))
             url += '@' + request.at.join(",");
@@ -38,17 +61,7 @@ class Ajax {
         } else if (request.hasOwnProperty("q"))
             url += '?' + request.q;
 
-        XHR.onreadystatechange = function () {
-            if (XHR.readyState === XMLHttpRequest.DONE) {
-                if (XHR.status === 200)
-                    request.success && request.success(JSON.parse(XHR.responseText));
-                else
-                    request.error && request.error(XHR);
-            }
-        };
-
-        XHR.open("GET", url, true);
-        XHR.send();
+        return url;
     }
 }
 
